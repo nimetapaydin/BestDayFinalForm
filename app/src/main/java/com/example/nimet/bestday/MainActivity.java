@@ -42,8 +42,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     Cursor cursor, kategoriCursor;
 
     long secilenKategoriID=0;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("users/");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,23 +50,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Button Kayıt = (Button) findViewById(R.id.Button);                  //Buton tanımlandı
+                         //Buton tanımlandı
         //loader initialize edilir ve oncreateloader tetiklenir
 
         getLoaderManager().initLoader(150, null, this);
 
 
-        Kayıt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myRef.child("Omuras").child("UserId").setValue("Murat");
-                myRef.child("Omuras").child("Adı").setValue("Mert");
-                myRef.child("Omuras").child("Soyadı").setValue("Ali");
-                myRef.child("Omuras").child("Numara").setValue("124124");
-                myRef.child("Omuras").child("Deneme").setValue("22");
 
-            }
-        });
 
 
         spinner = (Spinner) findViewById(R.id.spinner);
